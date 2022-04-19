@@ -4,7 +4,8 @@ from django.contrib.auth import views as auth_view
 
 
 urlpatterns = [
-    path('auth/', views.mainvid, name='mainvid'),
+    path('', views.mainvid, name='mainvid'),
+    #path('auth/', views.mainvid, name='mainvid'),
     path('alogin/', views.afterlogin, name='afterlogin'),
     path('register/', views.register, name='register'),
     path('profile/', views.profile, name='profile'),
