@@ -1,4 +1,5 @@
-# vidtopick
+# vidtopick  
+
 Auto subtitle file generation through machine learning in python
 
 This is the Final Year Project (FYP) of Software Engineering Major Students.
