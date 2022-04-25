@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+
+    <link rel="stylesheet" href="{% static 'authentication/assets2/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/assets2/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/assets2/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="{% static 'authentication/assets2/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/assets2/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="{% static 'authentication/assets2/css/Header-Blue.css">
+</head>
+
+<body id="page-top">
+    <div style="display: flex;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#"><img style="resize: 40px;font-size: 20px;margin-top: 40px;height: 80px;width: 90px;" src="{% static 'authentication/assets2/img/final_logo-removebg-preview.png' %}">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    <div class="sidebar-brand-text mx-3"></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="old%20his.html"><span></span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="FINAL%20FINAL%20PROFILE.html" style="font-size: 25px;"><span style="margin-top: 450px;margin-left: 30px;font-size: 25px;color: #ffffff;font-weight: 600;"><i class="fas fa-user" style="font-size: 25px;color: #ffffff;"></i>Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="table.html" style="font-size: 25px;margin-left: 30px;color: #ffffff;"><i class="fa fa-th" style="font-size: 25px;color: #ffffff;"></i><strong>History</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'favorites' %}" style="font-size: 25px;margin-left: 30px;color: #ffffff;font-weight: 600;"><i class="fa fa-star" style="font-size: 25px;color: #ffffff;"></i>Favorites</a><a class="nav-link" href="{% url 'afterlogin' %}" style="font-size: 25px;margin-left: 30px;margin-top: 180px;color: #ffffff;"><i class="fa fa-long-arrow-left" style="font-size: 25px;color: #ffffff;color: #ffffff;"></i>Back</a></li>
+                    <li class="nav-item"></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"></div>
+            </div>
+        </nav>
+        <div style="/*background-color: deepskyblue;*/">
+            <div class="dropdown" style="margin-left: 600px;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-left: 350px;margin-top: 20px;width: 150px;"><i class="fa fa-user"></i>&nbsp;Maryam</button>
+                <div class="dropdown-menu" style="width: 50px;height: 160px;outline-color: #172a74;"><a class="dropdown-item" href="#" style="background-color: #c2cbed;font-size: large;font-style: bold;/*font-weight: 200;*/">Edit Profile</a><a class="dropdown-item" href="#" style="background-color: #c2cbed;font-size: large;">History</a><a class="dropdown-item" href="{% url 'favorites' %}" style="background-color: #c2cbed;font-size: large;">Favorites</a><a class="dropdown-item" href="#" style="background-color: #c2cbed;font-size: large;">Logout</a></div>
+            </div><button class="btn btn-primary" type="button" style="/*display: flex;*/margin-left: 340px;width: 400px;height: 60px;font-size: 40px;margin-top: 00px;color: #472dea;background-color: #ffffff;outline-color: #ffffff;">&nbsp; <i class="fa fa-th"></i>&nbsp; History&nbsp;</button>
+            <div style="/*height: 200px;*/width: 700px;background-color: whitesmoke;margin-left: 200px;height: 450px;margin-top: 20px;"><button class="btn btn-primary" type="button" style="margin-left: 580px;margin-top: 15px;"><i class="fa fa-trash-o"></i>&nbsp;Remove&nbsp;</button></div>
+            <footer class="bg-white sticky-footer"></footer>
+        </div>
+    </div>
+    <script src="{% static 'authentication/assets2/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'authentication/assets2/js/theme.js' %}"></script>
+    
+</body>
+
+</html>
