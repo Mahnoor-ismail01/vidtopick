@@ -269,6 +269,9 @@ footer a {
                 <input type="text" name="name" placeholder="Name" />
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
                 <button type="submit" name="signup">Sign Up</button>
             </form>
         </div>
@@ -278,6 +281,9 @@ footer a {
                 
                 <input type="text" name="name" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
                 <a href="#">Forgot your password?</a>
                 <button type="submit" name="login">Sign In</button>
             </form>
