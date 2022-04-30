@@ -8,7 +8,8 @@ import subprocess as sp
 def uploadlink(request):
     if request.method=="POST":
         print(request.POST["link"])
-        os.chdir("videos")
+        videofolder=os.path.join(str(settings.BASE_DIR),"videos")
+        os.chdir(videofolder)
         filename=request.user.username+'_'+str(request.user.id)+'_'+request.POST["title"]
         
     
