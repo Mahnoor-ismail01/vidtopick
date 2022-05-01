@@ -258,40 +258,61 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
+#after-verif{
+    display: none;
+}
+#reset-pass{
+    display: none;
+}
     </style>
 </head>
 <body>
 
-    <div class="container {% for message in messages %} {% if 'signup' in message.tags %} right-panel-active {% endif %} {% endfor %} " id="container">
+    <div class="container right-panel-active" id="container">
         <div class="form-container sign-up-container">
-            <form method="post"> {% csrf_token %}
-                <h1>Create Account</h1>
-                <input type="text" name="name" placeholder="Name" />
+            <form id="before-verif" method="post"> {% csrf_token %}
+                <h1>Reset Password</h1>
                 <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
 				{% for message in messages %}
-				{% if "signup" in message.tags %}
-					<p>{{ message }}</p>
-				{% endif %}
-				{% endfor %}
-                <button type="submit" name="signup">Sign Up</button>
+                    {% if "no-email" in message.tags %}
+                        <p>{{ message }}</p>
+                    {% endif %}
+                {% endfor %}
+                <br>
+                <button type="submit" name="reset-pass">Send Verification Email</button>
+            </form>
+            <form id="after-verif" method="post"> {% csrf_token %}
+                <br><br><br><br>
+                    <h2>Enter Verification Code</h2>
+                    {% for message in messages %}
+                    {% if "password-reset" in message.tags %}
+                        <p>{{ message }}</p>
+                    {% elif "wrong-code" in message.tags %}
+                        <p>{{ message }}</p>
+                    {% endif %}
+                    {% endfor %}
+                    <input type="text" name="verification-code" placeholder="Verification Code" />
+                    
+                    <button type="submit" name="verify-code">Verify</button>
+            </form>
+            <form id="reset-pass" method="post"> {% csrf_token %}
+                <br><br><br><br>
+                    <h2>Enter New Password</h2>
+                    
+                    <input type="password" name="password1" placeholder="New Password" />
+                    <input type="password" name="password2" placeholder="Confirm Password" />
+
+                    {% for message in messages %}
+                        {% if "password-incorrect" in message.tags %}
+                            <p>{{ message }}</p>
+                        {% endif %}
+                    {% endfor %}
+
+                    
+                    <button type="submit" name="reset-password">Reset Password</button>
             </form>
         </div>
-        <div class="form-container sign-in-container">
-            <form method="post"> {% csrf_token %}
-                <h1>Sign in</h1>
-                
-                <input type="text" name="name" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
-				{% for message in messages %}
-				{% if "login" in message.tags %}
-					<p>{{ message }}</p>
-				{% endif %}
-				{% endfor %}
-                <a href="{% url 'forgot_pass' %}">Forgot your password?</a>
-                <button type="submit" name="login">Sign In</button>
-            </form>
-        </div>
+        
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
@@ -299,28 +320,42 @@ footer a {
                     <p>To keep connected with us please login with your personal info</p>
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
-                <div class="overlay-panel overlay-right">
-                    <h1> VidToPick </h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                </div>
+                
             </div>
         </div>
     </div>
-    
 
     <script>
-        const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+        function verify_request_sent(){
+            var new_form = document.getElementById("after-verif");
+            new_form.style.display = "block";
+            var current_form = document.getElementById("before-verif");
+            current_form.style.display = "none";
+        }
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
+        function reset_pass(){
+            var new_form = document.getElementById("reset-pass");
+            new_form.style.display = "block";
+            var current_form = document.getElementById("after-verif");
+            current_form.style.display = "none";
+            var current_form2 = document.getElementById("before-verif");
+            current_form2.style.display = "none";
+        }
 
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+       
+
+        {% for message in messages %}
+            {% if "password-reset" in message.tags %}
+                verify_request_sent();
+                console.log("HELLLOO");
+            {% elif "correct-code" in message.tags %}
+                reset_pass();
+            {% elif "wrong-code" in message.tags %}
+                verify_request_sent();
+            {% elif "password-incorrect" in message.tags %}
+                reset_pass();
+            {% endif %}
+        {% endfor %}
     </script>
     
     
