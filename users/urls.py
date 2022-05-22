@@ -8,4 +8,6 @@ urlpatterns = [
     path('profile/', profile_view, name='profile'),
     path('profile/edit/', edit_profile_view, name='edit_profile'),
     path('profile/change-password/', change_password_view, name='change_password'),
+    path('history/', history_view, name='history'),
+    path('favourites/', favourites_view, name='favourites'),
 ]

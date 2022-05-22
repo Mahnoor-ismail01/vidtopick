@@ -7,9 +7,14 @@ class Srtgen(models.Model):
     link=models.URLField()
     title=models.CharField(max_length=1000)
     user=models.ForeignKey(AuthUser,on_delete=models.CASCADE)
-    preview=models.FileField(upload_to='videos_uploaded',null=True,
+    preview=models.FileField(upload_to='videos_uploaded',null=True,blank=True,
 validators=[FileExtensionValidator(allowed_extensions=['mp4'])])
-    file=models.FileField(upload_to="srt_uploaded",null=True,validators=[FileExtensionValidator(allowed_extensions=['srt'])])
+    file=models.FileField(upload_to="srt_uploaded",null=True,blank=True,validators=[FileExtensionValidator(allowed_extensions=['srt'])])
+    public = models.BooleanField(default=True)
+    def __str__(self) -> str:
+        return self.title
 class Favourites(models.Model):
     user=models.ForeignKey(AuthUser,on_delete=models.CASCADE)
     link=models.ForeignKey(Srtgen,on_delete=models.CASCADE)
+
+    

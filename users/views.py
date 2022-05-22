@@ -13,6 +13,7 @@ from django.conf import settings
 from icecream import ic
 
 
+
 def display_view(request):
 
     if request.user.is_authenticated:
@@ -167,3 +168,14 @@ def change_password_view(request):
         else:
             messages.success(request, "Old Password is incorrect", extra_tags="password-incorrect1")
     return render(request, "change_password.html", {"user":user.name})
+
+
+def history_view(request):
+    objs = request.user.authuser.srtgen_set.all()
+    context={"objs":objs}
+    return render(request,"history.html",context)
+
+def favourites_view(request):
+    objs = request.user.authuser.favourites_set.all()
+    context={"objs":objs}
+    return render(request,"favourites.html",context)

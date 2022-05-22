@@ -1,19 +1,13 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+{% block content %}
+<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
-    <style>
-        body {
-    background-color: #f9f9fa
-}
 
+    <style>
+    
 .padding {
     padding: 3rem !important
 }
@@ -27,7 +21,9 @@
     -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     border: none;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    background-color: #17383d7d;
+    color: white
 }
 
 .m-r-0 {
@@ -43,8 +39,7 @@
 }
 
 .bg-c-lite-green {
-    background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-    background: linear-gradient(to right, #ee5a6f, #f29263)
+    background: linear-gradient(to right, #26b2ff, #0f1f62)
 }
 
 .user-profile {
@@ -63,7 +58,7 @@
     border-radius: 5px
 }
 
-h6 {
+.page-content h6 {
     font-size: 14px
 }
 
@@ -72,7 +67,7 @@ h6 {
 }
 
 @media only screen and (min-width: 1400px) {
-    p {
+    .page-content p {
         font-size: 14px
     }
 }
@@ -149,9 +144,6 @@ h6 {
     font-size: small;
 }
     </style>
-</head>
-<body>
-
 
     <div class="page-content page-container" id="page-content">
         <div class="padding">
@@ -212,6 +204,4 @@ h6 {
 
 
  
-    
-</body>
-</html>
+{% endblock %}

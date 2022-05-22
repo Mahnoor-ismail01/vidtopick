@@ -129,7 +129,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-<<<<<<< HEAD
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -138,7 +137,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'vidToPick@gmail.com'
 EMAIL_HOST_PASSWORD = 'uit12345'
-=======
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
->>>>>>> 3083de7491161563acdfd22dc5ea6ea0e287a2a2
